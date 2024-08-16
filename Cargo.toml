@@ -8,7 +8,13 @@ anyhow = "1.0.86"
 eframe = "0.28.1"
 egui = "0.28.1"
 egui-notify = "0.15.0"
-egui-phosphor = { version = "0.6.0", features = ["bold", "fill", "light", "thin"] }
+egui-phosphor = { version = "0.6.0", features = [
+    "bold",
+    "fill",
+    "light",
+    "thin",
+] }
+egui_plot = "0.28.1"
 strum = "0.26.3"
 strum_macros = "0.26.4"
 
