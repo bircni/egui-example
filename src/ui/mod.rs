@@ -1,7 +1,8 @@
 use eframe::CreationContext;
 use egui::{vec2, CentralPanel, Context, TextStyle};
 use examples::{
-    egui_form::EguiForm, egui_notify::EguiNotify, egui_phosphor::EguiPhosphor, egui_plot::EguiPlot,
+    egui_form::EguiForm, egui_json_tree::EguiJsonTree, egui_notify::EguiNotify,
+    egui_phosphor::EguiPhosphor, egui_plot::EguiPlot,
 };
 use tabbar::Tab;
 
@@ -64,6 +65,9 @@ impl eframe::App for App {
                 }
                 Tab::EguiForm => {
                     self.egui_form.show(ui);
+                }
+                Tab::EguiJsonTree => {
+                    EguiJsonTree::show(ui);
                 }
             }
         });

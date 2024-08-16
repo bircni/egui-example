@@ -26,4 +26,5 @@ pub enum Tab {
     EguiPhosphor,
     EguiPlot,
     EguiForm,
+    EguiJsonTree,
 }

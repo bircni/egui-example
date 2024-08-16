@@ -1,6 +1,7 @@
 use egui::{Hyperlink, RichText, Ui};
 
 pub mod egui_form;
+pub mod egui_json_tree;
 pub mod egui_notify;
 pub mod egui_phosphor;
 pub mod egui_plot;

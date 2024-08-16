@@ -16,10 +16,10 @@ pub struct EguiForm {
 }
 
 impl EguiForm {
-    pub const fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             fields: Fields {
-                name: String::new(),
+                name: "Name".to_owned(),
                 age: 33,
             },
         }
