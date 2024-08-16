@@ -14,8 +14,10 @@ egui-phosphor = { version = "0.6.0", features = [
     "light",
     "thin",
 ] }
+egui_form = { version = "0.2.0", features = ["validator_garde"] }
 egui_json_tree = "0.6.0"
 egui_plot = "0.28.1"
+garde = { version = "0.18.0", features = ["derive"] }
 serde_json = "1.0.125"
 strum = "0.26.3"
 strum_macros = "0.26.4"
