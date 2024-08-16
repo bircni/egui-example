@@ -1,6 +1,8 @@
 use egui::ScrollArea;
 use egui_phosphor::{bold, fill, light, regular, thin};
 
+use super::repository_link;
+
 pub struct EguiPhosphor {}
 
 impl EguiPhosphor {
@@ -58,11 +60,12 @@ impl EguiPhosphor {
     }
 
     pub fn show(&mut self, ui: &mut egui::Ui) {
-        ui.vertical_centered(|ui| {
+        ui.horizontal(|ui| {
             ui.add(egui::github_link_file!(
                 "https://github.com/bircni/egui-example/tree/master",
                 egui::RichText::new("(source code)").small()
             ));
+            repository_link(ui, "https://github.com/amPerl/egui-phosphor");
         });
         ScrollArea::vertical()
             .max_width(f32::INFINITY)

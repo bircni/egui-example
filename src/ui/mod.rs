@@ -1,6 +1,6 @@
 use eframe::CreationContext;
 use egui::{vec2, CentralPanel, Context, TextStyle};
-use examples::{egui_notify::EguiNotify, egui_phosphor::EguiPhosphor};
+use examples::{egui_notify::EguiNotify, egui_phosphor::EguiPhosphor, egui_plot::EguiPlot};
 use tabbar::Tab;
 
 mod examples;
@@ -55,6 +55,9 @@ impl eframe::App for App {
                 }
                 Tab::EguiPhosphor => {
                     self.egui_phosphor.show(ui);
+                }
+                Tab::EguiPlot => {
+                    EguiPlot::show(ui);
                 }
             }
         });

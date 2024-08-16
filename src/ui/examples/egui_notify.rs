@@ -3,6 +3,8 @@ use egui::{FontId, Ui};
 use egui_notify::{Toast, Toasts};
 use std::time::Duration;
 
+use super::repository_link;
+
 pub struct EguiNotify {
     toasts: Toasts,
     caption: String,
@@ -35,11 +37,12 @@ And another one"#
     }
 
     pub fn show(&mut self, ui: &mut Ui) {
-        ui.vertical_centered(|ui| {
+        ui.horizontal(|ui| {
             ui.add(egui::github_link_file!(
                 "https://github.com/bircni/egui-example/tree/master",
                 egui::RichText::new("(source code)").small()
             ));
+            repository_link(ui, "https://github.com/ItsEthra/egui-notify");
         });
         ui.text_edit_multiline(&mut self.caption);
         ui.checkbox(&mut self.expires, "Expires");
