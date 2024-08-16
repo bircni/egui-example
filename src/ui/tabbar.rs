@@ -23,4 +23,5 @@ pub enum Tab {
     #[default]
     Intro,
     EguiNotify,
+    EguiPhosphor,
 }

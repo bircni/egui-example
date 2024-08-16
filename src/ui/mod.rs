@@ -1,6 +1,6 @@
 use eframe::CreationContext;
 use egui::{vec2, CentralPanel, Context, TextStyle};
-use examples::egui_notify::EguiNotify;
+use examples::{egui_notify::EguiNotify, egui_phosphor::EguiPhosphor};
 use tabbar::Tab;
 
 mod examples;
@@ -9,6 +9,7 @@ mod tabbar;
 pub struct App {
     tab: Tab,
     egui_notify: EguiNotify,
+    egui_phosphor: EguiPhosphor,
 }
 
 impl App {
@@ -25,6 +26,7 @@ impl App {
         Self {
             tab: Tab::default(),
             egui_notify: EguiNotify::new(),
+            egui_phosphor: EguiPhosphor::new(cc),
         }
     }
 }
@@ -50,6 +52,9 @@ impl eframe::App for App {
                 }
                 Tab::EguiNotify => {
                     self.egui_notify.show(ui);
+                }
+                Tab::EguiPhosphor => {
+                    self.egui_phosphor.show(ui);
                 }
             }
         });
