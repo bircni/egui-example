@@ -1,7 +1,12 @@
 name: CI
 
-on: [push, pull_request]
-
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   ci:
     name: ${{ matrix.os }}
@@ -14,14 +19,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: cargo build
+      - name: Build
         run: cargo build
 
-      - name: cargo test
+      - name: Test
         run: cargo test
 
-      - name: cargo fmt
+      - name: Check formatting
         run: cargo fmt --all -- --check
 
-      - name: cargo clippy
+      - name: Lint
         run: cargo clippy -- -D warnings
