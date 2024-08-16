@@ -19,11 +19,11 @@ pub struct EguiNotify {
 
 impl EguiNotify {
     pub fn new() -> Self {
-        EguiNotify {
-            caption: r#"Hello! It's a multiline caption
+        Self {
+            caption: r"Hello! It's a multiline caption
 Next line
 Another one
-And another one"#
+And another one"
                 .into(),
             toasts: Toasts::default(),
             closable: true,

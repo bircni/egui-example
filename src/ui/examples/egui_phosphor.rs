@@ -6,7 +6,7 @@ use super::repository_link;
 pub struct EguiPhosphor {}
 
 impl EguiPhosphor {
-    pub fn new(cc: &eframe::CreationContext) -> Self {
+    pub fn init(cc: &eframe::CreationContext) {
         let mut fonts = egui::FontDefinitions::default();
 
         fonts.font_data.insert(
@@ -55,11 +55,9 @@ impl EguiPhosphor {
         );
 
         cc.egui_ctx.set_fonts(fonts);
-
-        Self {}
     }
 
-    pub fn show(&mut self, ui: &mut egui::Ui) {
+    pub fn show(ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             ui.add(egui::github_link_file!(
                 "https://github.com/bircni/egui-example/tree/master",

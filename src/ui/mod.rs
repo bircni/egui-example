@@ -9,7 +9,6 @@ mod tabbar;
 pub struct App {
     tab: Tab,
     egui_notify: EguiNotify,
-    egui_phosphor: EguiPhosphor,
 }
 
 impl App {
@@ -23,10 +22,10 @@ impl App {
                 .insert(TextStyle::Body, TextStyle::Monospace.resolve(s));
             s.spacing.item_spacing = vec2(10.0, std::f32::consts::PI * 1.76643);
         });
+        EguiPhosphor::init(cc);
         Self {
             tab: Tab::default(),
             egui_notify: EguiNotify::new(),
-            egui_phosphor: EguiPhosphor::new(cc),
         }
     }
 }
@@ -54,7 +53,7 @@ impl eframe::App for App {
                     self.egui_notify.show(ui);
                 }
                 Tab::EguiPhosphor => {
-                    self.egui_phosphor.show(ui);
+                    EguiPhosphor::show(ui);
                 }
                 Tab::EguiPlot => {
                     EguiPlot::show(ui);

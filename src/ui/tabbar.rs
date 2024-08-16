@@ -18,7 +18,7 @@ impl App {
     }
 }
 
-#[derive(Copy, Clone, PartialEq, Default, EnumIter, Display)]
+#[derive(Copy, Clone, PartialEq, Eq, Default, EnumIter, Display)]
 pub enum Tab {
     #[default]
     Intro,

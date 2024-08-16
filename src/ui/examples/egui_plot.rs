@@ -17,11 +17,10 @@ impl EguiPlot {
             .legend(Legend::default())
             .show(ui, |plot_ui| {
                 plot_ui.line(
-                    Line::new(PlotPoints::from_explicit_callback(|x| x.sin(), .., 5000))
-                        .name("Sinus"),
+                    Line::new(PlotPoints::from_explicit_callback(f64::sin, .., 5000)).name("Sinus"),
                 );
                 plot_ui.line(
-                    Line::new(PlotPoints::from_explicit_callback(|x| x.cos(), .., 5000))
+                    Line::new(PlotPoints::from_explicit_callback(f64::cos, .., 5000))
                         .name("Cosinus"),
                 );
             });
