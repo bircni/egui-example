@@ -25,4 +25,5 @@ pub enum Tab {
     EguiNotify,
     EguiPhosphor,
     EguiPlot,
+    EguiForm,
 }

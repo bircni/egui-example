@@ -6,12 +6,7 @@ mod ui;
 fn main() -> anyhow::Result<()> {
     let viewport = ViewportBuilder::default()
         .with_title("egui-example")
-        .with_inner_size(egui::vec2(600.0, 400.0))
-        //.with_icon(
-        //    eframe::icon_data::from_png_bytes(include_bytes!("../res/icon.png"))
-        //        .unwrap_or_default(),
-        //)
-        ;
+        .with_inner_size(egui::vec2(600.0, 400.0));
 
     eframe::run_native(
         "egui-example",
