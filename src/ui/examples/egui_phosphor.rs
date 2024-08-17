@@ -62,27 +62,44 @@ pub fn show_egui_phosphor(ui: &mut egui::Ui) {
         ));
         repository_link(ui, "https://github.com/amPerl/egui-phosphor");
     });
+
     ScrollArea::vertical()
         .max_width(f32::INFINITY)
         .show(ui, |ui| {
-            for (family, icon) in [
+            let fonts = [
                 ("phosphor-thin", thin::FILE_CODE),
                 ("phosphor-light", light::FILE_CODE),
                 ("phosphor", regular::FILE_CODE),
                 ("phosphor-bold", bold::FILE_CODE),
                 ("phosphor-fill", fill::FILE_CODE),
-            ] {
-                ui.heading(family);
-                egui::Frame::canvas(ui.style()).show(ui, |ui| {
-                    for size in [16.0, 32.0, 48.0] {
-                        let demo_text = format!("FILE_CODE {icon}");
-                        ui.label(
-                            egui::RichText::new(&demo_text)
-                                .family(egui::FontFamily::Name(family.into()))
-                                .size(size),
-                        );
+            ];
+
+            let mut fonts_iter = fonts.iter();
+
+            while let Some((family1, icon1)) = fonts_iter.next() {
+                ui.horizontal(|ui| {
+                    render_font_family(ui, family1, icon1);
+
+                    if let Some((family2, icon2)) = fonts_iter.next() {
+                        render_font_family(ui, family2, icon2);
                     }
                 });
             }
         });
+}
+
+fn render_font_family(ui: &mut egui::Ui, family: &str, icon: &str) {
+    ui.vertical(|ui| {
+        ui.heading(family);
+        egui::Frame::canvas(ui.style()).show(ui, |ui| {
+            for size in [16.0, 32.0, 48.0] {
+                let demo_text = format!("FILE_CODE {icon}");
+                ui.label(
+                    egui::RichText::new(&demo_text)
+                        .family(egui::FontFamily::Name(family.into()))
+                        .size(size),
+                );
+            }
+        });
+    });
 }

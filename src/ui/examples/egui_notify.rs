@@ -44,6 +44,7 @@ And another one"
             ));
             repository_link(ui, "https://github.com/ItsEthra/egui-notify");
         });
+
         ui.text_edit_multiline(&mut self.caption);
         ui.checkbox(&mut self.expires, "Expires");
         ui.checkbox(&mut self.closable, "Closable");

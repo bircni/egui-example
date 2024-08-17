@@ -3,6 +3,8 @@ use egui_form::garde::{field_path, GardeReport};
 use egui_form::{Form, FormField};
 use garde::Validate;
 
+use super::repository_link;
+
 #[derive(Debug, Default, Validate)]
 struct Fields {
     #[garde(length(min = 2, max = 50))]
@@ -26,6 +28,17 @@ impl EguiForm {
     }
 
     pub fn show(&mut self, ui: &mut Ui) {
+        ui.horizontal(|ui| {
+            ui.add(egui::github_link_file!(
+                "https://github.com/bircni/egui-example/tree/master",
+                egui::RichText::new("(source code)").small()
+            ));
+            repository_link(
+                ui,
+                "https://github.com/lucasmerlin/hello_egui/tree/main/crates/egui_form",
+            );
+        });
+
         let mut form = Form::new().add_report(GardeReport::new(self.fields.validate(&())));
         FormField::new(&mut form, field_path!("name"))
             .label("User Name")
