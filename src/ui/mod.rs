@@ -1,8 +1,8 @@
 use eframe::CreationContext;
 use egui::{vec2, CentralPanel, Context, TextStyle};
 use examples::{
-    egui_form::EguiForm, egui_json_tree::EguiJsonTree, egui_notify::EguiNotify,
-    egui_phosphor::EguiPhosphor, egui_plot::EguiPlot,
+    egui_form::EguiForm, egui_json_tree, egui_notify::EguiNotify, egui_phosphor, egui_plot,
+    egui_tiles::EguiTiles,
 };
 use tabbar::Tab;
 
@@ -13,6 +13,7 @@ pub struct App {
     tab: Tab,
     egui_notify: EguiNotify,
     egui_form: EguiForm,
+    egui_tiles: EguiTiles,
 }
 
 impl App {
@@ -26,11 +27,12 @@ impl App {
                 .insert(TextStyle::Body, TextStyle::Monospace.resolve(s));
             s.spacing.item_spacing = vec2(10.0, std::f32::consts::PI * 1.76643);
         });
-        EguiPhosphor::init(cc);
+        egui_phosphor::init_egui_phosphor(cc);
         Self {
             tab: Tab::default(),
             egui_notify: EguiNotify::new(),
             egui_form: EguiForm::new(),
+            egui_tiles: EguiTiles {},
         }
     }
 }
@@ -58,16 +60,19 @@ impl eframe::App for App {
                     self.egui_notify.show(ui);
                 }
                 Tab::EguiPhosphor => {
-                    EguiPhosphor::show(ui);
+                    egui_phosphor::show_egui_phosphor(ui);
                 }
                 Tab::EguiPlot => {
-                    EguiPlot::show(ui);
+                    egui_plot::show_egui_plot(ui);
                 }
                 Tab::EguiForm => {
                     self.egui_form.show(ui);
                 }
                 Tab::EguiJsonTree => {
-                    EguiJsonTree::show(ui);
+                    egui_json_tree::show_egui_json(ui);
+                }
+                Tab::EguiTiles => {
+                    self.egui_tiles.show(ui);
                 }
             }
         });
