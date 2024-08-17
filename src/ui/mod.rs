@@ -4,10 +4,10 @@ use examples::{
     egui_form::EguiForm, egui_json_tree, egui_notify::EguiNotify, egui_phosphor, egui_plot,
     egui_tiles::EguiTiles,
 };
-use tabbar::Tab;
+use sidebar::Tab;
 
 mod examples;
-mod tabbar;
+mod sidebar;
 
 pub struct App {
     tab: Tab,
@@ -40,40 +40,32 @@ impl App {
 /// Main application loop (called every frame)
 impl eframe::App for App {
     fn update(&mut self, ctx: &Context, _frame: &mut eframe::Frame) {
-        CentralPanel::default().show(ctx, |ui| {
-            self.show_tabbar(ui);
+        self.show_sidebar(ctx);
 
-            ui.vertical_centered(|ui| {
-                ui.separator();
-            });
-
-            match self.tab {
-                Tab::Intro => {
-                    ui.label("Welcome to egui-example!");
-                    ui.label("Have fun exploring the examples.");
-                    ui.label(
-                        "Also feel free to check out the source code or add your own examples.",
-                    );
-                    ui.label("Select a tab to get started.");
-                }
-                Tab::EguiNotify => {
-                    self.egui_notify.show(ui);
-                }
-                Tab::EguiPhosphor => {
-                    egui_phosphor::show_egui_phosphor(ui);
-                }
-                Tab::EguiPlot => {
-                    egui_plot::show_egui_plot(ui);
-                }
-                Tab::EguiForm => {
-                    self.egui_form.show(ui);
-                }
-                Tab::EguiJsonTree => {
-                    egui_json_tree::show_egui_json(ui);
-                }
-                Tab::EguiTiles => {
-                    self.egui_tiles.show(ui);
-                }
+        CentralPanel::default().show(ctx, |ui| match self.tab {
+            Tab::Intro => {
+                ui.label("Welcome to egui-example!");
+                ui.label("Have fun exploring the examples.");
+                ui.label("Also feel free to check out the source code or add your own examples.");
+                ui.label("Select a tab to get started.");
+            }
+            Tab::EguiNotify => {
+                self.egui_notify.show(ui);
+            }
+            Tab::EguiPhosphor => {
+                egui_phosphor::show_egui_phosphor(ui);
+            }
+            Tab::EguiPlot => {
+                egui_plot::show_egui_plot(ui);
+            }
+            Tab::EguiForm => {
+                self.egui_form.show(ui);
+            }
+            Tab::EguiJsonTree => {
+                egui_json_tree::show_egui_json(ui);
+            }
+            Tab::EguiTiles => {
+                self.egui_tiles.show(ui);
             }
         });
     }

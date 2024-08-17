@@ -1,6 +1,8 @@
 use egui::{Ui, WidgetText};
 use egui_tiles::{TileId, UiResponse};
 
+use super::repository_link;
+
 struct Pane {
     nr: usize,
 }
@@ -9,6 +11,14 @@ pub struct EguiTiles {}
 
 impl EguiTiles {
     pub fn show(&mut self, ui: &mut Ui) {
+        ui.horizontal(|ui| {
+            ui.add(egui::github_link_file!(
+                "https://github.com/bircni/egui-example/tree/master",
+                egui::RichText::new("(source code)").small()
+            ));
+            repository_link(ui, "https://github.com/rerun-io/egui_tiles");
+        });
+
         let mut tree = create_tree();
         tree.ui(self, ui);
     }
