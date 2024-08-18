@@ -15,6 +15,7 @@ egui-phosphor = { version = "0.6.0", features = [
     "light",
     "thin",
 ] }
+egui_file = "0.18.0"
 egui_form = { version = "0.2.0", features = ["validator_garde"] }
 egui_json_tree = "0.6.0"
 egui_plot = "0.28.1"
