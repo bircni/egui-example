@@ -25,10 +25,6 @@ impl EguiTiles {
 }
 
 impl egui_tiles::Behavior<Pane> for EguiTiles {
-    fn tab_title_for_pane(&mut self, pane: &Pane) -> WidgetText {
-        format!("Pane {}", pane.nr).into()
-    }
-
     fn pane_ui(&mut self, ui: &mut Ui, _tile_id: TileId, pane: &mut Pane) -> UiResponse {
         // Give each pane a unique color:
         let color = egui::epaint::Hsva::new(0.103 * pane.nr as f32, 0.5, 0.5, 1.0);
@@ -41,10 +37,14 @@ impl egui_tiles::Behavior<Pane> for EguiTiles {
             .add(egui::Button::new("Drag me!").sense(egui::Sense::drag()))
             .drag_started()
         {
-            egui_tiles::UiResponse::DragStarted
+            UiResponse::DragStarted
         } else {
-            egui_tiles::UiResponse::None
+            UiResponse::None
         }
+    }
+
+    fn tab_title_for_pane(&mut self, pane: &Pane) -> WidgetText {
+        format!("Pane {}", pane.nr).into()
     }
 }
 
