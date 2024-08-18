@@ -30,4 +30,5 @@ pub enum Tab {
     EguiForm,
     EguiJsonTree,
     EguiTiles,
+    EguiFile,
 }
