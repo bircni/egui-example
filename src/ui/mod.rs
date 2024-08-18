@@ -1,8 +1,8 @@
 use eframe::CreationContext;
 use egui::{vec2, CentralPanel, Context, TextStyle};
 use examples::{
-    egui_file::EguiFile, egui_form::EguiForm, egui_json_tree, egui_notify::EguiNotify,
-    egui_phosphor, egui_plot, egui_tiles::EguiTiles,
+    egui_file::EguiFile, egui_file_dialog::EguiFileDialog, egui_form::EguiForm, egui_json_tree,
+    egui_notify::EguiNotify, egui_phosphor, egui_plot, egui_tiles::EguiTiles,
 };
 use sidebar::Tab;
 
@@ -15,6 +15,7 @@ pub struct App {
     egui_form: EguiForm,
     egui_tiles: EguiTiles,
     egui_file: EguiFile,
+    egui_file_dialog: EguiFileDialog,
 }
 
 impl App {
@@ -35,6 +36,7 @@ impl App {
             egui_form: EguiForm::new(),
             egui_tiles: EguiTiles {},
             egui_file: EguiFile::default(),
+            egui_file_dialog: EguiFileDialog::new(),
         }
     }
 }
@@ -71,6 +73,9 @@ impl eframe::App for App {
             }
             Tab::EguiFile => {
                 self.egui_file.show(ui);
+            }
+            Tab::EguiFileDialog => {
+                self.egui_file_dialog.show(ui);
             }
         });
     }
