@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.86"
 eframe = "0.28.1"
-egui = "0.28.1"
+egui = "0.29.0"
 egui-file-dialog = "0.6.0"
 egui-notify = "0.15.0"
 egui-phosphor = { version = "0.6.0", features = [
