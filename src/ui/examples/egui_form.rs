@@ -39,7 +39,7 @@ impl EguiForm {
             );
         });
 
-        let mut form = Form::new().add_report(GardeReport::new(self.fields.validate(&())));
+        let mut form = Form::new().add_report(GardeReport::new(self.fields.validate()));
         FormField::new(&mut form, field_path!("name"))
             .label("User Name")
             .ui(ui, TextEdit::singleline(&mut self.fields.name));

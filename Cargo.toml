@@ -4,26 +4,32 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.86"
-eframe = "0.28.1"
-egui = "0.28.1"
-egui-file-dialog = "0.6.0"
+anyhow = "1.0.89"
+eframe = "0.29.1"
+egui = "0.29.1"
+egui-file-dialog = "0.6.1"
 egui-notify = "0.15.0"
-egui-phosphor = { version = "0.6.0", features = [
+egui-phosphor = { version = "0.7.1", features = [
     "bold",
     "fill",
     "light",
     "thin",
 ] }
-egui_file = "0.18.0"
+egui_file = "0.19.0"
 egui_form = { version = "0.2.0", features = ["validator_garde"] }
 egui_json_tree = "0.6.0"
-egui_plot = "0.28.1"
-egui_tiles = "0.9.0"
-garde = { version = "0.18.0", features = ["derive"] }
-serde_json = "1.0.125"
+egui_plot = "0.29.0"
+egui_tiles = "0.10.1"
+garde = { version = "0.20.0", features = ["derive"] }
+serde_json = "1.0.128"
 strum = "0.26.3"
 strum_macros = "0.26.4"
+
+[patch.crates-io]
+egui-file-dialog = { git = "https://github.com/fluxxcode/egui-file-dialog", branch = "develop" }
+egui_form = { git = "https://github.com/lucasmerlin/hello_egui", branch = "main" }
+egui_json_tree = { git = "https://github.com/bircni/egui_json_tree", branch = "egui_0.29.0" }
+egui-notify = { git = "https://github.com/ItsEthra/egui-notify", branch = "master" }
 
 [lints.rust]
 unsafe_code = "forbid"
