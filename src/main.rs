@@ -12,7 +12,6 @@ fn main() -> anyhow::Result<()> {
         "egui-example",
         eframe::NativeOptions {
             viewport,
-            follow_system_theme: true,
             centered: true,
             ..Default::default()
         },

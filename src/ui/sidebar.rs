@@ -1,4 +1,4 @@
-use egui::{global_dark_light_mode_buttons, Context, SidePanel};
+use egui::{Context, SidePanel};
 use strum::IntoEnumIterator;
 use strum_macros::{Display, EnumIter};
 
@@ -10,7 +10,7 @@ impl App {
             let selected_tab = &mut self.tab;
             ui.vertical(|ui| {
                 ui.add_space(6.0);
-                global_dark_light_mode_buttons(ui);
+                egui::global_theme_preference_buttons(ui);
                 ui.separator();
                 for tab in Tab::iter() {
                     ui.selectable_value(selected_tab, tab, tab.to_string());
