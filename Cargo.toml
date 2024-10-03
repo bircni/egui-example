@@ -16,7 +16,7 @@ egui-phosphor = { version = "0.7.1", features = [
     "thin",
 ] }
 egui_file = "0.19.0"
-egui_form = { version = "0.2.0", features = ["validator_garde"] }
+egui_form = { version = "0.3.0", features = ["validator_garde"] }
 egui_json_tree = "0.7.0"
 egui_plot = "0.29.0"
 egui_tiles = "0.10.1"
@@ -26,7 +26,6 @@ strum = "0.26.3"
 strum_macros = "0.26.4"
 
 [patch.crates-io]
-egui_form = { git = "https://github.com/lucasmerlin/hello_egui", branch = "main" }
 
 [lints.rust]
 unsafe_code = "forbid"
