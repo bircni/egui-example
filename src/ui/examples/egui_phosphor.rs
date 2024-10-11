@@ -6,6 +6,8 @@ use super::repository_link;
 pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
     let mut fonts = egui::FontDefinitions::default();
 
+    // Add the phosphor regular font to the font definitions separately for egui-notify
+    egui_phosphor::add_to_fonts(&mut fonts, egui_phosphor::Variant::Regular);
     fonts.font_data.insert(
         "phosphor-thin".into(),
         egui_phosphor::Variant::Thin.font_data(),

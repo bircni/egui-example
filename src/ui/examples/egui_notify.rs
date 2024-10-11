@@ -1,14 +1,16 @@
 use eframe::egui::Slider;
-use egui::{FontId, Ui};
+use egui::{Color32, FontId, Shadow, Theme, Ui, Vec2};
 use egui_notify::{Toast, Toasts};
 use std::time::Duration;
 
 use super::repository_link;
 
+#[allow(clippy::struct_excessive_bools)] // We need all these bools
 pub struct EguiNotify {
     toasts: Toasts,
     caption: String,
     closable: bool,
+    shadow: bool,
     show_progress_bar: bool,
     expires: bool,
     duration: f32,
@@ -27,6 +29,7 @@ And another one"
                 .into(),
             toasts: Toasts::default(),
             closable: true,
+            shadow: false,
             expires: true,
             show_progress_bar: true,
             duration: 3.5,
@@ -36,6 +39,7 @@ And another one"
         }
     }
 
+    #[allow(clippy::too_many_lines)] // This is a UI example
     pub fn show(&mut self, ui: &mut Ui) {
         ui.horizontal(|ui| {
             ui.add(egui::github_link_file!(
@@ -49,6 +53,22 @@ And another one"
         ui.checkbox(&mut self.expires, "Expires");
         ui.checkbox(&mut self.closable, "Closable");
         ui.checkbox(&mut self.show_progress_bar, "ShowProgressBar");
+        ui.checkbox(&mut self.shadow, "Shadow").clicked().then(|| {
+            self.toasts = if self.shadow {
+                Toasts::default().with_shadow(Shadow {
+                    offset: Vec2::default(),
+                    blur: 10.0,
+                    spread: 1.0,
+                    color: if ui.ctx().theme() == Theme::Light {
+                        Color32::from_black_alpha(200)
+                    } else {
+                        Color32::from_white_alpha(200)
+                    },
+                })
+            } else {
+                Toasts::default()
+            };
+        });
         if !(self.expires || self.closable) {
             ui.label("Warning; toasts will have to be closed programatically");
         }
@@ -71,10 +91,10 @@ And another one"
             } else {
                 None
             };
-            t.set_closable(self.closable)
-                .set_duration(duration)
-                .set_show_progress_bar(self.show_progress_bar)
-                .set_font(FontId::proportional(self.font_size));
+            t.closable(self.closable)
+                .duration(duration)
+                .show_progress_bar(self.show_progress_bar)
+                .font(FontId::proportional(self.font_size));
         };
 
         ui.horizontal(|ui| {
@@ -107,7 +127,10 @@ And another one"
             }
 
             if ui
-                .button("Phosphor")
+                .button(format!(
+                    "{} Phosphor",
+                    egui_phosphor::regular::FAN.to_owned()
+                ))
                 .on_hover_text("This toast uses egui-phosphor icons")
                 .clicked()
             {
