@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.94"
+anyhow = "1.0.95"
 eframe = "0.30.0"
 egui = "0.30.0"
 egui-file-dialog = "0.8.0"
@@ -15,19 +15,19 @@ egui-phosphor = { version = "0.8.0", features = [
     "light",
     "thin",
 ] }
-egui_file = "0.19.0"
-egui_form = { version = "0.3.0", features = ["validator_garde"] }
+egui_file = "0.20.0"
+egui_form = { version = "0.4.0", features = ["validator_garde"] }
 egui_json_tree = "0.9.0"
 egui_plot = "0.30.0"
 egui_tiles = "0.11.0"
 garde = { version = "0.20.0", features = ["derive"] }
-serde_json = "1.0.133"
+serde_json = "1.0.134"
 strum = "0.26.3"
 strum_macros = "0.26.4"
 
 [patch.crates-io]
-egui_form = { git = "https://github.com/elwerene/hello_egui", branch = "update-to-egui-0.30" }
-egui_file = { git = "https://github.com/bircni/egui_file", branch = "patch-1" }
+# egui_form = { git = "https://github.com/elwerene/hello_egui", branch = "update-to-egui-0.30" }
+# egui_file = { git = "https://github.com/bircni/egui_file", branch = "patch-1" }
 
 [lints.rust]
 unsafe_code = "forbid"
