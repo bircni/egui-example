@@ -10,7 +10,7 @@ pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
     egui_phosphor::add_to_fonts(&mut fonts, egui_phosphor::Variant::Regular);
     fonts.font_data.insert(
         "phosphor-thin".into(),
-        egui_phosphor::Variant::Thin.font_data(),
+        egui_phosphor::Variant::Thin.font_data().into(),
     );
     fonts.families.insert(
         egui::FontFamily::Name("phosphor-thin".into()),
@@ -19,7 +19,7 @@ pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
 
     fonts.font_data.insert(
         "phosphor-light".into(),
-        egui_phosphor::Variant::Light.font_data(),
+        egui_phosphor::Variant::Light.font_data().into(),
     );
     fonts.families.insert(
         egui::FontFamily::Name("phosphor-light".into()),
@@ -28,7 +28,7 @@ pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
 
     fonts.font_data.insert(
         "phosphor".into(),
-        egui_phosphor::Variant::Regular.font_data(),
+        egui_phosphor::Variant::Regular.font_data().into(),
     );
     fonts.families.insert(
         egui::FontFamily::Name("phosphor".into()),
@@ -37,7 +37,7 @@ pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
 
     fonts.font_data.insert(
         "phosphor-bold".into(),
-        egui_phosphor::Variant::Bold.font_data(),
+        egui_phosphor::Variant::Bold.font_data().into(),
     );
     fonts.families.insert(
         egui::FontFamily::Name("phosphor-bold".into()),
@@ -46,7 +46,7 @@ pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
 
     fonts.font_data.insert(
         "phosphor-fill".into(),
-        egui_phosphor::Variant::Fill.font_data(),
+        egui_phosphor::Variant::Fill.font_data().into(),
     );
     fonts.families.insert(
         egui::FontFamily::Name("phosphor-fill".into()),

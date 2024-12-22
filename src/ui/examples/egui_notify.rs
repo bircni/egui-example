@@ -1,5 +1,5 @@
 use eframe::egui::Slider;
-use egui::{Color32, FontId, Shadow, Theme, Ui, Vec2};
+use egui::{Color32, Shadow, Theme, Ui, Vec2};
 use egui_notify::{Toast, Toasts};
 use std::time::Duration;
 
@@ -93,8 +93,7 @@ And another one"
             };
             t.closable(self.closable)
                 .duration(duration)
-                .show_progress_bar(self.show_progress_bar)
-                .font(FontId::proportional(self.font_size));
+                .show_progress_bar(self.show_progress_bar);
         };
 
         ui.horizontal(|ui| {

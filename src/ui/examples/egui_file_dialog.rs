@@ -26,7 +26,7 @@ impl EguiFileDialog {
             repository_link(ui, "https://github.com/fluxxcode/egui-file-dialog");
         });
 
-        if let Some(path) = self.file_dialog.take_selected() {
+        if let Some(path) = self.file_dialog.take_picked() {
             self.selected_path = Some(path);
         }
         ui.label(format!(
@@ -36,11 +36,11 @@ impl EguiFileDialog {
                 .map_or_else(|| "None".to_owned(), |p| p.to_string_lossy().to_string())
         ));
         ui.button("Select file").clicked().then(|| {
-            self.file_dialog.select_file();
+            self.file_dialog.pick_file();
         });
         ui.button("Select directory")
             .clicked()
-            .then(|| self.file_dialog.select_directory());
+            .then(|| self.file_dialog.pick_directory());
 
         self.file_dialog.update(ui.ctx());
     }
