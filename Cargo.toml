@@ -16,7 +16,7 @@ egui-phosphor = { version = "0.9", features = [
     "thin",
 ] }
 egui_file = "0.22"
-egui_form = { version = "0.4", features = ["validator_garde"] }
+egui_form = { version = "0.5", features = ["validator_garde"] }
 egui_json_tree = "0.10"
 egui_plot = "0.31"
 egui_tiles = "0.12"
@@ -26,7 +26,6 @@ strum = "0.26"
 strum_macros = "0.26"
 
 [patch.crates-io]
-egui_form = { git = "https://github.com/lucasmerlin/hello_egui", branch = "main" }
 egui_json_tree = { git = "https://github.com/bircni/egui_json_tree", branch = "patch/egui-version" }
 # egui_file = { git = "https://github.com/bircni/egui_file", branch = "patch-1" }
 
