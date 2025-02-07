@@ -5,6 +5,7 @@ use examples::{
     egui_notify::EguiNotify, egui_phosphor, egui_plot, egui_tiles::EguiTiles,
 };
 use sidebar::Tab;
+use std::f32;
 
 mod examples;
 mod sidebar;
@@ -19,7 +20,7 @@ pub struct App {
 }
 
 impl App {
-    pub fn new(cc: &CreationContext) -> Self {
+    pub fn new(cc: &CreationContext<'_>) -> Self {
         cc.egui_ctx.style_mut(|s| {
             s.text_styles.insert(
                 TextStyle::Name("subheading".into()),
@@ -27,7 +28,7 @@ impl App {
             );
             s.text_styles
                 .insert(TextStyle::Body, TextStyle::Monospace.resolve(s));
-            s.spacing.item_spacing = vec2(10.0, std::f32::consts::PI * 1.76643);
+            s.spacing.item_spacing = vec2(10.0, f32::consts::PI * 1.76643);
         });
         egui_phosphor::init_egui_phosphor(cc);
         Self {
