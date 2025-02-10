@@ -9,7 +9,7 @@ eframe = "0.30.0"
 egui = "0.30.0"
 egui-file-dialog = "0.8.0"
 egui-notify = "0.18.0"
-egui-phosphor = { version = "0.8.0", features = [
+egui-phosphor = { version = "0.9.0", features = [
     "bold",
     "fill",
     "light",
