@@ -3,7 +3,7 @@ use egui_phosphor::{bold, fill, light, regular, thin};
 
 use super::repository_link;
 
-pub fn init_egui_phosphor(cc: &eframe::CreationContext) {
+pub fn init_egui_phosphor(cc: &eframe::CreationContext<'_>) {
     let mut fonts = egui::FontDefinitions::default();
 
     // Add the phosphor regular font to the font definitions separately for egui-notify

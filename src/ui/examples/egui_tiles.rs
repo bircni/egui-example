@@ -1,4 +1,4 @@
-use egui::{Ui, WidgetText};
+use egui::{epaint::Hsva, Ui, WidgetText};
 use egui_tiles::{TileId, UiResponse};
 
 use super::repository_link;
@@ -27,7 +27,7 @@ impl EguiTiles {
 impl egui_tiles::Behavior<Pane> for EguiTiles {
     fn pane_ui(&mut self, ui: &mut Ui, _tile_id: TileId, pane: &mut Pane) -> UiResponse {
         // Give each pane a unique color:
-        let color = egui::epaint::Hsva::new(0.103 * pane.nr as f32, 0.5, 0.5, 1.0);
+        let color = Hsva::new(0.103 * pane.nr as f32, 0.5, 0.5, 1.0);
         ui.painter().rect_filled(ui.max_rect(), 0.0, color);
 
         ui.label(format!("The contents of pane {}.", pane.nr));

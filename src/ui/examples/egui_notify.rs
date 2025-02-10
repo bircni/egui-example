@@ -1,11 +1,12 @@
 use eframe::egui::Slider;
-use egui::{Color32, Shadow, Theme, Ui, Vec2};
+use egui::{Color32, Shadow, Theme, Ui};
 use egui_notify::{Toast, Toasts};
+use egui_phosphor::regular::FAN;
 use std::time::Duration;
 
 use super::repository_link;
 
-#[allow(clippy::struct_excessive_bools)] // We need all these bools
+#[expect(clippy::struct_excessive_bools, reason = "We need all these bools")]
 pub struct EguiNotify {
     toasts: Toasts,
     caption: String,
@@ -39,7 +40,6 @@ And another one"
         }
     }
 
-    #[allow(clippy::too_many_lines)] // This is a UI example
     pub fn show(&mut self, ui: &mut Ui) {
         ui.horizontal(|ui| {
             ui.add(egui::github_link_file!(
@@ -56,9 +56,9 @@ And another one"
         ui.checkbox(&mut self.shadow, "Shadow").clicked().then(|| {
             self.toasts = if self.shadow {
                 Toasts::default().with_shadow(Shadow {
-                    offset: Vec2::default(),
-                    blur: 10.0,
-                    spread: 1.0,
+                    offset: [1, 2],
+                    blur: 10,
+                    spread: 1,
                     color: if ui.ctx().theme() == Theme::Light {
                         Color32::from_black_alpha(200)
                     } else {
@@ -126,16 +126,13 @@ And another one"
             }
 
             if ui
-                .button(format!(
-                    "{} Phosphor",
-                    egui_phosphor::regular::FAN.to_owned()
-                ))
+                .button(format!("{FAN} Phosphor"))
                 .on_hover_text("This toast uses egui-phosphor icons")
                 .clicked()
             {
                 customize_toast(self.toasts.custom(
                     self.caption.clone(),
-                    egui_phosphor::regular::FAN.to_owned(),
+                    FAN.to_owned(),
                     self.custom_level_color,
                 ));
             }
