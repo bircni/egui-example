@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.95"
-eframe = "0.30.0"
+eframe = "0.31.0"
 egui = "0.30.0"
 egui-file-dialog = "0.8.0"
 egui-notify = "0.18.0"
