@@ -1,5 +1,5 @@
 use egui::{DragValue, TextEdit, Ui};
-use egui_form::garde::{field_path, GardeReport};
+use egui_form::garde::{GardeReport, field_path};
 use egui_form::{Form, FormField};
 use garde::Validate;
 

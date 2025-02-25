@@ -1,4 +1,4 @@
-use egui::{epaint::Hsva, Ui, WidgetText};
+use egui::{Ui, WidgetText, epaint::Hsva};
 use egui_tiles::{TileId, UiResponse};
 
 use super::repository_link;
