@@ -16,6 +16,10 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.85
+          components: rustfmt, clippy
       - name: Checkout code
         uses: actions/checkout@v4
 

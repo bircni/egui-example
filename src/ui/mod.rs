@@ -1,5 +1,5 @@
 use eframe::CreationContext;
-use egui::{vec2, CentralPanel, Context, TextStyle};
+use egui::{CentralPanel, Context, TextStyle, vec2};
 use examples::{
     egui_file::EguiFile, egui_file_dialog::EguiFileDialog, egui_form::EguiForm, egui_json_tree,
     egui_notify::EguiNotify, egui_phosphor, egui_plot, egui_tiles::EguiTiles,
