@@ -14,14 +14,17 @@ pub fn show_egui_plot(ui: &mut egui::Ui) {
     egui_plot::Plot::new("plot")
         .legend(Legend::default())
         .show(ui, |plot_ui| {
-            plot_ui.line(
-                Line::new(PlotPoints::from_explicit_callback(f64::sin, .., 5000)).name("Sinus"),
-            );
-            plot_ui.line(
-                Line::new(PlotPoints::from_explicit_callback(f64::tan, .., 5000)).name("Tangens"),
-            );
-            plot_ui.line(
-                Line::new(PlotPoints::from_explicit_callback(f64::cos, .., 5000)).name("Cosinus"),
-            );
+            plot_ui.line(Line::new(
+                "Sinus",
+                PlotPoints::from_explicit_callback(f64::sin, .., 5000),
+            ));
+            plot_ui.line(Line::new(
+                "Tangens",
+                PlotPoints::from_explicit_callback(f64::tan, .., 5000),
+            ));
+            plot_ui.line(Line::new(
+                "Cosinus",
+                PlotPoints::from_explicit_callback(f64::cos, .., 5000),
+            ));
         });
 }
